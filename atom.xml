@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>SuperMap iDesktop Cross 8C</title>
   <subtitle>跨平台、全开源、可定制</subtitle>
-  <link href="/iDesktop-Cross-Docs/atom.xml" rel="self"/>
+  <link href="/iDesktop-Cross/atom.xml" rel="self"/>
   
   <link href="http://qinlj.github.io/iDesktop-Cross/"/>
   <updated>2016-05-01T12:44:14.214Z</updated>
