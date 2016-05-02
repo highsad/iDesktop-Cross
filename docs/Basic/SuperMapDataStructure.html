@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>SuperMap 数据组织结构 | SuperMap iDesktop Cross 8C</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://qinlj.github.io/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="en" href="http://qinlj.github.io/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/iDesktop-Cross-Docs/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/iDesktop-Cross-Docs/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1.1.3/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/iDesktop-Cross-Docs/atom.xml" title="SuperMap iDesktop Cross 8C">
+  <!-- Open Graph -->
+   <!--<meta name="description" content="SuperMap iDesktop Cross 的数据组织结构，主要包括工作空间、数据源、数据集、地图和场景。数据组织形式为类似于树状层次结构，一个工作空间包含的数据源集合、地图集合、场景集合和符号资源集合。
+工作空间工作空间是用户进行地理操作的工作环境，用户在进行数据操作时，都需要先创建一个工作空间。应用程序启动时，默认为用户建立了一个空的工作空间，用户可以在此基础上进行数据操作，或者打开已有工">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SuperMap 数据组织结构">
+<meta property="og:url" content="http://qinlj.github.io/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html">
+<meta property="og:site_name" content="SuperMap iDesktop Cross 8C">
+<meta property="og:description" content="SuperMap iDesktop Cross 的数据组织结构，主要包括工作空间、数据源、数据集、地图和场景。数据组织形式为类似于树状层次结构，一个工作空间包含的数据源集合、地图集合、场景集合和符号资源集合。
+工作空间工作空间是用户进行地理操作的工作环境，用户在进行数据操作时，都需要先创建一个工作空间。应用程序启动时，默认为用户建立了一个空的工作空间，用户可以在此基础上进行数据操作，或者打开已有工">
+<meta property="og:updated_time" content="2016-05-01T12:44:14.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SuperMap 数据组织结构">
+<meta name="twitter:description" content="SuperMap iDesktop Cross 的数据组织结构，主要包括工作空间、数据源、数据集、地图和场景。数据组织形式为类似于树状层次结构，一个工作空间包含的数据源集合、地图集合、场景集合和符号资源集合。
+工作空间工作空间是用户进行地理操作的工作环境，用户在进行数据操作时，都需要先创建一个工作空间。应用程序启动时，默认为用户建立了一个空的工作空间，用户可以在此基础上进行数据操作，或者打开已有工">
+<meta property="fb:admins" content="100000247608790">-->
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4910098-10', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/iDesktop-Cross-Docs/" id="logo">SuperMap iDesktop Cross</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/iDesktop-Cross-Docs/docs/" class="main-nav-link">Docs</a><a href="/iDesktop-Cross-Docs/news/" class="main-nav-link">News</a>
+      <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross" class="main-nav-link"><i class="fa fa-git"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="docs/Basic/SuperMapDataStructure.html">
+        
+          <option value="en" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">SuperMap 数据组织结构</h1>
+                <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross-Docs/blob/master/source/docs/Basic/SuperMapDataStructure.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <p>SuperMap iDesktop Cross 的数据组织结构，主要包括工作空间、数据源、数据集、地图和场景。数据组织形式为类似于树状层次结构，一个工作空间包含的数据源集合、地图集合、场景集合和符号资源集合。</p>
+<h2 id="工作空间" class="article-heading"><a href="#工作空间" class="headerlink" title="工作空间"></a>工作空间<a class="article-anchor" href="#工作空间" aria-hidden="true"></a></h2><p>工作空间是用户进行地理操作的工作环境，用户在进行数据操作时，都需要先创建一个工作空间。应用程序启动时，默认为用户建立了一个空的工作空间，用户可以在此基础上进行数据操作，或者打开已有工作空间进行操作。工作空间会保存用户在该工作环境中的操作结果，包括用户在该工作空间中打开的数据源、保存的地图、布局和三维场景等，当用户打开工作空间时可以基于上一次的工作成果继续工作。</p>
+<h3 id="工作空间类型" class="article-heading"><a href="#工作空间类型" class="headerlink" title="工作空间类型"></a>工作空间类型<a class="article-anchor" href="#工作空间类型" aria-hidden="true"></a></h3><p>按照工作空间的存储形式，工作空间可以分为文件型、数据库型两类。文件型工作空间以 <em>.smwu 或</em>.sxwu 两种格式进行存储；数据库型工作空间，是将工作空间保存在数据库中，目前仅支持存储在 Oracle 和 SQL Server 数据库中。</p>
+<h3 id="工作空间管理" class="article-heading"><a href="#工作空间管理" class="headerlink" title="工作空间管理"></a>工作空间管理<a class="article-anchor" href="#工作空间管理" aria-hidden="true"></a></h3><p>工作空间中的地图、三维场景和资源都是保存在工作空间中，删除工作空间时，其中的地图、三维场景和符号库资源也相应的随之删除；而数据源是独立存储的，与工作空间只是关联关系，并没有保存在工作空间中，当删除工作空间时，只是删除了工作空间与数据源的关联关系，并不能删除数据源。工作空间的管理包括工作空间的打开、保存、另存、关闭和删除等内容。</p>
+<ul>
+<li><p><strong>打开</strong>：若打开的工作空间为文件型工作空间，在工具栏中单击“打开工作空间”下拉菜单中的“文件型…”选项，选择需打开的文件型工作空间即可；若需打开数据库型工作空间，则选择“Oracle…”（或“SQL Server…”）选项，在弹出的对话框中设置服务器地址、数据库名称、用户名信息、工作空间名称等参数，即可打开指定的工作空间。</p>
+</li>
+<li><p><strong>保存、另存</strong>：用于保存工作空间中的工作环境及操作结果，同时可选择是否保存工作空间中的地图、场景和 KML图层文件。另存工作空间可将工作空间保存为文件型、Oracle 型或 SQL Server型。</p>
+</li>
+<li><p><strong>关闭</strong>：工作空间节点右键菜单中，提供了“关闭工作空间”功能，若应用程序中当前打开的工作空间没有未被保存的内容，则直接关闭当前的工作空间；如果当前打开的工作空间存在未被保存的内容，则会弹出对话框，提示用户在关闭当前打开的工作空间时是否保存这些内容。</p>
+</li>
+</ul>
+<h2 id="数据源" class="article-heading"><a href="#数据源" class="headerlink" title="数据源"></a>数据源<a class="article-anchor" href="#数据源" aria-hidden="true"></a></h2><p>SuperMap iDesktop Cross 的空间数据可以存储在文件中和数据库中，即数据源可以保存在文件中或者数据库中。数据源可以分为：文件型数据源、数据库型数据源、 Web 数据源、内存数据源四种。</p>
+<h3 id="数据源类型" class="article-heading"><a href="#数据源类型" class="headerlink" title="数据源类型"></a>数据源类型<a class="article-anchor" href="#数据源类型" aria-hidden="true"></a></h3><ul>
+<li><p><strong>文件型数据源</strong>：即 UDB 类型数据源，存储于扩展名为 <em>.udb/</em>.udd 的文件中。新建 UDB 数据源时，会同时产生两个文件，<em>.udb 文件和与之相对应的 </em>.udd 文件，且这两个文件名除后缀名部分相同。 GIS 空间数据除了包含空间几何对象外，还包含对象的属性信息，在文件型数据源中， <em>.udb 文件主要存储空间数据的空间几何信息，</em>.udd 文件存储属性信息。UDB 数据源，是一个跨平台、支持海量数据高效存取的文件型数据源，UDB 可以存储的数据上限达到 128TB 大小。</p>
+</li>
+<li><p><strong>数据库型数据源</strong>：存储于数据库中，如 Oracle Plus 数据库、SQL Server Plus 数据库等。对应数据库型数据源，其空间数据的空间几何信息和属性信息都存储在数据库中。要对数据源中的空间数据操作，必须先通过工作空间中的数据源集合打开数据源，并且对数据源及其中的空间数据的所有操作将直接保存在数据源中而不是保存在工作空间中。数据源是独立于工作空间存储的，删除工作空间本身，工作空间中的数据源不会随之删除和变化。</p>
+</li>
+<li><p><strong>Web 数据源</strong>：存储于网络服务器上的数据源，如 OGC 数据源、iServerREST 数据源、超图云服务数据源、GoogleMaps 数据源、百度地图数据源、天地图服务数据源。在使用该类型的数据源时，通过 URL 地址来获取相应的数据源。</p>
+</li>
+<li><p><strong>内存数据源</strong>：内存数据源为临时数据源，只支持新建不支持保存，但是在内存数据源中进行数据处理效率较高。</p>
+</li>
+</ul>
+<h3 id="数据源管理" class="article-heading"><a href="#数据源管理" class="headerlink" title="数据源管理"></a>数据源管理<a class="article-anchor" href="#数据源管理" aria-hidden="true"></a></h3><p>数据源用于存储空间数据，独立于工作空间，用户可根据数据的用途，将不同的空间数据保存于数据源中，对这些数据统一进行管理和操作。SuperMap iDesktop Cross 提供的数据源管理有打开、新建、查看属性、重命名、关闭等操作。</p>
+<ul>
+<li><p><strong>新建数据源</strong>：数据源结点右键菜单和工具栏中提供了新建数据源功能，支持新建文件型、数据库型、内存数据源三种类型，其中数据库型数据源支持SQLPlus、OraclePlus、PostgreSQL、DB2、KingBase、MySQL 六种数据引擎。</p>
+</li>
+<li><p><strong>打开数据源</strong>：数据源结点右键菜单和工具栏中提供了打开数据源功能，支持打开的数据源类型有文件型、数据库型、Web型三种类型数据源，同时支持将外部矢量和影像文件以数据源形式打开。若打开的是文件型数据源，则选择指定的UDB文件或影像、矢量文件即可打开；若打开的是数据库型数据源，则需设置数据源所在的服务器地址、数据库名称、用户信息等参数，即可打开指定的数据库型数据源；若打开的是Web型数据源，则输入Web数据源路径即可打开。</p>
+</li>
+<li><p><strong>数据源属性</strong>：数据源右键菜单中提供了数据源属性功能，可通过“属性”对话框查看数据源的属性信息和投影信息。</p>
+</li>
+</ul>
+<h2 id="数据集" class="article-heading"><a href="#数据集" class="headerlink" title="数据集"></a>数据集<a class="article-anchor" href="#数据集" aria-hidden="true"></a></h2><p>数据集用于存储地理空间对象，是 SuperMap GIS 空间数据的基本组织单位之一。数据集的管理包括数据集的新建、复制、导入、导出、删除、关闭、重命名等操作，也包括查看数据的属性、设置数据集的投影等。目前支持二三维点、线、面数据集、纯属性数据集、网络数据集、复合数据集、文本数据集、路由数据集、影像/栅格数据集、模型数据集等多种类型。</p>
+<ul>
+<li><p><strong>新建数据集</strong>：数据源支持新建的数据集类型有：二三维点、线、面数据集、文本、CAD、属性表、等多种类型的数据集，在“新建数据集”对话框中设置目标数据源、创建类型、数据集名称、编码类型等参数后，即可创建用户所需的数据集。</p>
+</li>
+<li><p><strong>复制数据集</strong>：即将一个或者多个数据集复制到目标数据源中，可通过右键菜单功能复制，也可将选中数据集直接拖拽到目标数据源实现复制。</p>
+</li>
+<li><p><strong>导入导出数据集</strong>：SuperMap 除了支持自己的数据类型外，还支持多种外部的数据的导入；也支持将数据导出为其他软件支持的数据格式，具体说明请参见数据导入和数据导出页面。</p>
+</li>
+<li><strong>影像金字塔</strong>：影像金字塔技术是处理海量影像常常采用的技术，对栅格、影像数据集创建影像金字塔后，可提高数据的浏览速度。关于影像金字塔的具体说明请参见影像金字塔页面。</li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2016-05-01T12:44:14.214Z" itemprop="dateModified">Last updated: 2016-05-01</time>
+                <a href="index.html" class="article-footer-next" title="产品介绍"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+              
+  <section id="comments">
+<!-- 多说评论框 start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qinlj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+  <!-- 分享框 -->
+<div class="ds-share" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      	
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+  </section>
+
+
+
+
+
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">本页目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作空间"><span class="toc-text">工作空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工作空间类型"><span class="toc-text">工作空间类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作空间管理"><span class="toc-text">工作空间管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据源"><span class="toc-text">数据源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据源类型"><span class="toc-text">数据源类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据源管理"><span class="toc-text">数据源管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-text">数据集</span></a></li></ol>
+              <a href="#" id="article-toc-top">Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner"><strong class="sidebar-title">Welcome</strong><a href="index.html" class="sidebar-link">产品介绍</a><strong class="sidebar-title">产品入门</strong><a href="/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html" class="sidebar-link">数据组织结构</a><a href="/iDesktop-Cross-Docs/docs/Basic/Pyramid.html" class="sidebar-link">影像金字塔</a><a href="/iDesktop-Cross-Docs/docs/Basic/GeoFormates.html" class="sidebar-link">数据转换</a><strong class="sidebar-title">数据分析</strong><a href="/iDesktop-Cross-Docs/docs/BufferTheory.html" class="sidebar-link">缓冲区分析原理</a><a href="/iDesktop-Cross-Docs/docs/SingleBuffer.html" class="sidebar-link">单重缓冲区分析</a><a href="/iDesktop-Cross-Docs/docs/BufferAnalyst_Example.html" class="sidebar-link">缓冲区应用实例</a></div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2016 <a href="http://www.supermap.com/" target="_blank">iDesktop</a><br>
+      Documentation Version 1.0.0
+    </div>
+    <div id="footer-links">
+      <!--a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a-->
+      <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross" class="footer-link" target="_blank"><i class="fa fa-git"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/iDesktop-Cross-Docs/docs/" class="mobile-nav-link">Docs</a><a href="/iDesktop-Cross-Docs/news/" class="mobile-nav-link">News</a>
+      <li class="mobile-nav-item">
+        <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross" class="mobile-nav-link" rel="external" target="_blank">git.OSChina</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Welcome</strong><a href="index.html" class="mobile-nav-link">产品介绍</a><strong class="mobile-nav-title">产品入门</strong><a href="/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html" class="mobile-nav-link">数据组织结构</a><a href="/iDesktop-Cross-Docs/docs/Basic/Pyramid.html" class="mobile-nav-link">影像金字塔</a><a href="/iDesktop-Cross-Docs/docs/Basic/GeoFormates.html" class="mobile-nav-link">数据转换</a><strong class="mobile-nav-title">数据分析</strong><a href="/iDesktop-Cross-Docs/docs/BufferTheory.html" class="mobile-nav-link">缓冲区分析原理</a><a href="/iDesktop-Cross-Docs/docs/SingleBuffer.html" class="mobile-nav-link">单重缓冲区分析</a><a href="/iDesktop-Cross-Docs/docs/BufferAnalyst_Example.html" class="mobile-nav-link">缓冲区应用实例</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="docs/Basic/SuperMapDataStructure.html">
+      
+        <option value="en" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/iDesktop-Cross-Docs/js/lang_select.js"></script>
+<script src="/iDesktop-Cross-Docs/js/toc.js"></script>
+<script src="/iDesktop-Cross-Docs/js/mobile_nav.js"></script>
+<!-- endbuild -->
+<script src="https://cdn.jsdelivr.net/retinajs/1.3.0/retina.min.js" async></script>
+
+<!-- Algolia -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1.1.3/docsearch.js"></script>
+<script type="text/javascript">
+document.getElementById('search-input-wrap').classList.add('on');
+docsearch({
+  apiKey: '730aa5a5d7de138e76eb18d00beb37eb',
+  indexName: 'iDesktop-Cross-Docs',
+  inputSelector: '#search-input'
+});
+</script>
+
+
+</body>
+</html>

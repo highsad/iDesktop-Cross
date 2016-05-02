@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>影像金字塔 | SuperMap iDesktop Cross 8C</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://qinlj.github.io/iDesktop-Cross-Docs/docs/Basic/Pyramid.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="en" href="http://qinlj.github.io/iDesktop-Cross-Docs/docs/Basic/Pyramid.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/iDesktop-Cross-Docs/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/iDesktop-Cross-Docs/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/iDesktop-Cross-Docs/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/iDesktop-Cross-Docs/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1.1.3/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/iDesktop-Cross-Docs/atom.xml" title="SuperMap iDesktop Cross 8C">
+  <!-- Open Graph -->
+   <!--<meta name="description" content="基本概念影像金字塔是栅格数据集的简化的分辨率（Reduced Resolution）图像的集合，通过影像重采样方法，建立一系列不同分辨率的影像图层，每个图层分别存储，并建立相应的空间索引机制，从而提高缩放浏览影像时的显示速度。为减小影像的传输数据量和优化显示性能，有时需要为影像建立影像金字塔。
+实现原理影像金字塔是按照一定规则生成的一系列分辨率由细到粗的图像的集合。影像金字塔技术通过影像重采样方法">
+<meta property="og:type" content="website">
+<meta property="og:title" content="影像金字塔">
+<meta property="og:url" content="http://qinlj.github.io/iDesktop-Cross-Docs/docs/Basic/Pyramid.html">
+<meta property="og:site_name" content="SuperMap iDesktop Cross 8C">
+<meta property="og:description" content="基本概念影像金字塔是栅格数据集的简化的分辨率（Reduced Resolution）图像的集合，通过影像重采样方法，建立一系列不同分辨率的影像图层，每个图层分别存储，并建立相应的空间索引机制，从而提高缩放浏览影像时的显示速度。为减小影像的传输数据量和优化显示性能，有时需要为影像建立影像金字塔。
+实现原理影像金字塔是按照一定规则生成的一系列分辨率由细到粗的图像的集合。影像金字塔技术通过影像重采样方法">
+<meta property="og:image" content="http://qinlj.github.io/iDesktop-Cross-Docs/img/HasPyramid.png">
+<meta property="og:image" content="http://qinlj.github.io/iDesktop-Cross-Docs/img/Pyramid.png">
+<meta property="og:updated_time" content="2016-05-01T12:44:14.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="影像金字塔">
+<meta name="twitter:description" content="基本概念影像金字塔是栅格数据集的简化的分辨率（Reduced Resolution）图像的集合，通过影像重采样方法，建立一系列不同分辨率的影像图层，每个图层分别存储，并建立相应的空间索引机制，从而提高缩放浏览影像时的显示速度。为减小影像的传输数据量和优化显示性能，有时需要为影像建立影像金字塔。
+实现原理影像金字塔是按照一定规则生成的一系列分辨率由细到粗的图像的集合。影像金字塔技术通过影像重采样方法">
+<meta name="twitter:image" content="http://qinlj.github.io/iDesktop-Cross-Docs/img/HasPyramid.png">
+<meta property="fb:admins" content="100000247608790">-->
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4910098-10', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/iDesktop-Cross-Docs/" id="logo">SuperMap iDesktop Cross</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/iDesktop-Cross-Docs/docs/" class="main-nav-link">Docs</a><a href="/iDesktop-Cross-Docs/news/" class="main-nav-link">News</a>
+      <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross" class="main-nav-link"><i class="fa fa-git"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="docs/Basic/Pyramid.html">
+        
+          <option value="en" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">影像金字塔</h1>
+                <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross-Docs/blob/master/source/docs/Basic/Pyramid.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h3 id="基本概念" class="article-heading"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念<a class="article-anchor" href="#基本概念" aria-hidden="true"></a></h3><p>影像金字塔是栅格数据集的简化的分辨率（Reduced Resolution）图像的集合，通过影像重采样方法，建立一系列不同分辨率的影像图层，每个图层分别存储，并建立相应的空间索引机制，从而提高缩放浏览影像时的显示速度。为减小影像的传输数据量和优化显示性能，有时需要为影像建立影像金字塔。</p>
+<h3 id="实现原理" class="article-heading"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理<a class="article-anchor" href="#实现原理" aria-hidden="true"></a></h3><p>影像金字塔是按照一定规则生成的一系列分辨率由细到粗的图像的集合。影像金字塔技术通过影像重采样方法，建立一系列不同分辨率的影像图层，每个图层分割存储，并建立相应的空间索引机制，从而提高缩放浏览影像时的显示速度。如下图所示的影像金字塔，底部是影像的原始最高分辨率的表示，为512×512图像分辨率，越往上的影像的分辨率越小，分别为256×256，128×128，顶部是影像金字塔的最低分辨率的图像64×64，因此这个影像金字塔共有4层，即4个等级的分辨率。显然影像的图像分辨率越高，影像金字塔的等级越多。对于图像分辨率为2^a×2^b的（a&gt;b）影像，SuperMap中将会为其建立（b-6）+1 层的金字塔。</p>
+<p>  <img src="img/HasPyramid.png" alt=""></p>
+<p>  图：影像金字塔</p>
+<p>为影像建立了影像金字塔之后，以后每次浏览该影像时，系统都会获取其影像金字塔来显示数据，当您将影像放大或缩小时，系统会自动基于用户的显示比例尺选择最合适的金字塔等级来显示该影像。</p>
+<p>金字塔只能针对原始的数据进行创建。一次只能给一个数据集创建金字塔，如果想再次创建，需要将已创建的金字塔删除。浏览创建影像金字塔后的栅格数据集时，实际上时在访问已创建的金字塔。如下图所示在不同的比例尺下金字塔的建立过程。</p>
+<p>  <img src="img/Pyramid.png" alt=""></p>
+<p>建立影像金字塔可以显著地提高影像缩放显示渲染的速度和性能，但是同时影像金字塔的建立会增加数据集的存储空间，即增大影像数据集所在数据源文件的大小，这是因为建立的影像金字塔实际上就是影像在不同分辨率下的图像的集合，这些不同分辨率下的图像都和数据一起存储在数据源文件中，从而增大了数据源文件的大小。而且栅格数据集数据量越大建立金字塔的时间越长，影像金字塔的存储空间也就越大，但是会为以后的影像浏览节约了更多的时间，所以对于海量影像数据，创建金字塔不失为一种优化效率的选择。</p>
+<p>SuperMap SIT 影像文件存储格式是集成了影像压缩及高效的影像金字塔技术的数据格式，因而可以超快速地显示影像数据，与影像数据大小基本无关，即使在很低配置的机器上也能非常流畅地对海量影像数据进行显示。</p>
+<h3 id="影像金字塔管理" class="article-heading"><a href="#影像金字塔管理" class="headerlink" title="影像金字塔管理"></a>影像金字塔管理<a class="article-anchor" href="#影像金字塔管理" aria-hidden="true"></a></h3><p>影像金字塔管理功能包括创建和删除金字塔的功能，具体操作说明如下：</p>
+<h4 id="创建影像金字塔" class="article-heading"><a href="#创建影像金字塔" class="headerlink" title="创建影像金字塔"></a>创建影像金字塔<a class="article-anchor" href="#创建影像金字塔" aria-hidden="true"></a></h4><p>支持创建影像金字塔的数据集有影像、栅格数据集、及以数据源形式直接打开的栅格文件（目前支持 tiff、tif、img 格式）。创建影像金字塔有两种操作方式，如下所述：</p>
+<ul>
+<li><strong>方式一</strong>：单击“数据集”菜单栏，选择“影像金字塔…”项，在弹出的“影像金字塔管理”对话框中添加需创建金字塔的数据集，可批量创建影像金字塔。</li>
+<li><strong>方式二</strong>：在工作空间管理器中选中待创建影像金字塔的影像（或栅格）数据集，单击鼠标右键选择“创建影像金字塔…”项，即可对选中的数据集创建影像金字塔。<strong>注意</strong>：若在工作空间管理器中选中多个数据集通过右键菜单创建金字塔，必须都为影像数据集，或都为栅格数据集。</li>
+</ul>
+<h4 id="删除影像金字塔" class="article-heading"><a href="#删除影像金字塔" class="headerlink" title="删除影像金字塔"></a>删除影像金字塔<a class="article-anchor" href="#删除影像金字塔" aria-hidden="true"></a></h4><p>创建了影像金字塔的影像和栅格数据集可进行删除操作，但是，对于以数据源形式打开的影像文件，如 tiff、img格式的数据，不能进行删除影像金字塔的操作。删除影像金字塔也有以下两种方式：</p>
+<ul>
+<li><strong>方式一</strong>：单击“数据集”菜单栏，选择“影像金字塔…”项，在弹出的“影像金字塔管理”对话框中添加并选中需删除金字塔的数据集，可批量删除影像金字塔。</li>
+<li><strong>方式二</strong>：在工作空间管理器中选中一个或多个需删除影像金字塔的影像（或栅格）数据集，单击鼠标右键选择“删除影像金字塔…”项，即可将选中的数据集创建影像金字塔。<strong>注意</strong>：若在工作空间管理器中选中多个数据集通过右键菜单创建金字塔，必须都为影像数据集，或都为栅格数据集。</li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2016-05-01T12:44:14.214Z" itemprop="dateModified">Last updated: 2016-05-01</time>
+                <a href="index.html" class="article-footer-next" title="产品介绍"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+              
+  <section id="comments">
+<!-- 多说评论框 start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qinlj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+  <!-- 分享框 -->
+<div class="ds-share" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      	
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+  </section>
+
+
+
+
+
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">本页目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现原理"><span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#影像金字塔管理"><span class="toc-text">影像金字塔管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建影像金字塔"><span class="toc-text">创建影像金字塔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除影像金字塔"><span class="toc-text">删除影像金字塔</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner"><strong class="sidebar-title">Welcome</strong><a href="index.html" class="sidebar-link">产品介绍</a><strong class="sidebar-title">产品入门</strong><a href="/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html" class="sidebar-link">数据组织结构</a><a href="/iDesktop-Cross-Docs/docs/Basic/Pyramid.html" class="sidebar-link">影像金字塔</a><a href="/iDesktop-Cross-Docs/docs/Basic/GeoFormates.html" class="sidebar-link">数据转换</a><strong class="sidebar-title">数据分析</strong><a href="/iDesktop-Cross-Docs/docs/BufferTheory.html" class="sidebar-link">缓冲区分析原理</a><a href="/iDesktop-Cross-Docs/docs/SingleBuffer.html" class="sidebar-link">单重缓冲区分析</a><a href="/iDesktop-Cross-Docs/docs/BufferAnalyst_Example.html" class="sidebar-link">缓冲区应用实例</a></div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2016 <a href="http://www.supermap.com/" target="_blank">iDesktop</a><br>
+      Documentation Version 1.0.0
+    </div>
+    <div id="footer-links">
+      <!--a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a-->
+      <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross" class="footer-link" target="_blank"><i class="fa fa-git"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/iDesktop-Cross-Docs/docs/" class="mobile-nav-link">Docs</a><a href="/iDesktop-Cross-Docs/news/" class="mobile-nav-link">News</a>
+      <li class="mobile-nav-item">
+        <a href="http://git.oschina.net/supermap/SuperMap-iDesktop-Cross" class="mobile-nav-link" rel="external" target="_blank">git.OSChina</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Welcome</strong><a href="index.html" class="mobile-nav-link">产品介绍</a><strong class="mobile-nav-title">产品入门</strong><a href="/iDesktop-Cross-Docs/docs/Basic/SuperMapDataStructure.html" class="mobile-nav-link">数据组织结构</a><a href="/iDesktop-Cross-Docs/docs/Basic/Pyramid.html" class="mobile-nav-link">影像金字塔</a><a href="/iDesktop-Cross-Docs/docs/Basic/GeoFormates.html" class="mobile-nav-link">数据转换</a><strong class="mobile-nav-title">数据分析</strong><a href="/iDesktop-Cross-Docs/docs/BufferTheory.html" class="mobile-nav-link">缓冲区分析原理</a><a href="/iDesktop-Cross-Docs/docs/SingleBuffer.html" class="mobile-nav-link">单重缓冲区分析</a><a href="/iDesktop-Cross-Docs/docs/BufferAnalyst_Example.html" class="mobile-nav-link">缓冲区应用实例</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="docs/Basic/Pyramid.html">
+      
+        <option value="en" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/iDesktop-Cross-Docs/js/lang_select.js"></script>
+<script src="/iDesktop-Cross-Docs/js/toc.js"></script>
+<script src="/iDesktop-Cross-Docs/js/mobile_nav.js"></script>
+<!-- endbuild -->
+<script src="https://cdn.jsdelivr.net/retinajs/1.3.0/retina.min.js" async></script>
+
+<!-- Algolia -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1.1.3/docsearch.js"></script>
+<script type="text/javascript">
+document.getElementById('search-input-wrap').classList.add('on');
+docsearch({
+  apiKey: '730aa5a5d7de138e76eb18d00beb37eb',
+  indexName: 'iDesktop-Cross-Docs',
+  inputSelector: '#search-input'
+});
+</script>
+
+
+</body>
+</html>
